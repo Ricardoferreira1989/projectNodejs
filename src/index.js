@@ -3,9 +3,9 @@ const express = require('express')
 
 const app = express()
 
-require('./controllers/authController')(app)
-
 app.use(express.urlencoded({extended : true}))
-app.use(express.json())
+app.use(express.json());
+
+require('./controllers/authController')(app)
 
 app.listen(3000, () => console.log('Server running...'))
