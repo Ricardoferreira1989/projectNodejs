@@ -5,8 +5,10 @@ const User = require('../models/user')
 const router = express.Router()
 
 router.post('/register', async(req, res) => {
+    const { nome } = req.body;
     try {
-        let user = await User.create(req.body)
+        //const user = await User.create(req.body)
+        const user = await User.create({ nome });
 
         return res.send({ user })
     } catch (err) {
